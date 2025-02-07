@@ -1,0 +1,17 @@
+name: 'Java Build and Test Action'
+description: 'A custom GitHub Action to build and test a Java application using Maven'
+author: 'Your Name <your-email@example.com>'
+
+inputs:
+  java-version:
+    description: 'The version of Java to use'
+    required: true
+    default: '11'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'  # Use the Dockerfile to build the action
+
+  # Optional: If you want to capture outputs, you can define them here
+  outputs:
+    result: ${{ steps.build.outputs.result }}

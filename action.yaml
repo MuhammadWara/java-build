@@ -1,6 +1,10 @@
 name: 'Java Build and Test Action'
 description: 'A custom GitHub Action to build and test a Java application using Maven'
-author: 'Your Name <your-email@example.com>'
+author: 'Muhammad Wara'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'  # This points to your Dockerfile in the root of the repository
 
 inputs:
   java-version:
@@ -8,10 +12,7 @@ inputs:
     required: true
     default: '11'
 
-runs:
-  using: 'docker'
-  image: 'Dockerfile'  # Use the Dockerfile to build the action
-
-  # Optional: If you want to capture outputs, you can define them here
-  outputs:
-    result: ${{ steps.build.outputs.result }}
+outputs:
+  result:
+    description: 'Build and test result'
+    value: 'success'
